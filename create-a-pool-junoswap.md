@@ -38,8 +38,8 @@ junod tx wasm instantiate 16 \
 --from <wallet-name>
 ```
 
-上から順にコマンドの中身を説明すると、`16`と言うのはさっき述べた通り、JunoswapのContract IDで、一番上の行ではJunoswapのcontractをインスタンス化して新しいプールを作ることを宣言している。　　　
-二行目では、プール内の資産に関する設定を記述している。`lp_token_code_id`とは、LP tokenを発行するためのContract Code Idを指定するためのもので、今現在だと`1`を指定したら良い思います。(使われるLP＿token用の[コントラクトのCode IDが1](https://www.mintscan.io/juno/wasm/contract/juno1pe2umwzqea0hvstzug2mm2ntrcxm336374954p5f6e52s5gf2zusklhqqr))   
+上から順にコマンドの中身を説明すると、`16`と言うのはさっき述べた通り、JunoswapのContracnのcode IDで、一番上の行ではJunoswapのcontractをインスタンス化して新しいプールを作ることを宣言している。　　　
+二行目では、プール内の資産に関する設定を記述している。`lp_token_code_id`とは、LP tokenを発行するためのContract Code Idを指定するためのもので、今現在だと`1`を指定したら良い。(使われるLP＿token用の[コントラクトのCode IDが1](https://www.mintscan.io/juno/wasm/contract/juno1pe2umwzqea0hvstzug2mm2ntrcxm336374954p5f6e52s5gf2zusklhqqr))   
 `label`とはPoolを識別するための文字列で、`admin`は、コントラクトのStateを管理するアドレス。個人のアドレスの他コントラクトアドレスも指定することができるし、なにも指定しないこともできる。つまり、DENGAKU DAOのコントラクトアドレスも指定することが可能。
 
 For this time:
