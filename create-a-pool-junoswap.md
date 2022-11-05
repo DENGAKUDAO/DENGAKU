@@ -23,9 +23,9 @@ NATTO = "juno1vn7z90efc3xju59ahrawchd6t70xsmmewuyzhms3vftfwcy928dqck2qnk"
 ```
 
 2. 空のPoolを作成する
-
-JunoswapのcontractのIDは16。
-プールに必要な属性として、ラベルを付ける。
+  
+ JunoswapのContract codeをインスタンス化して、専用のcontractを作成する。
+使うJunoswapのcontractのCode IDは16。
 
 e.g.
 ```shell
@@ -55,7 +55,7 @@ junod tx wasm instantiate 16 \
 --node https://rpc.juno.omniflix.co:443
 ```
 
-3. コントラクトによる資産への干渉を許可する
+1. コントラクトによる資産への干渉を許可する
 
 2で作ったContractに対して＄DENGAKUと＄NATTOをApproveしてやる必要があります。
 各コマンドは、   
