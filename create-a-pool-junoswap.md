@@ -3,7 +3,6 @@
 JunoswapとはJuno上にあるUniswap型（x*y=k)のAMMのDEX.
 このDocの目的としては、最小限の説明でJunoswapに特定のトークンペアを持つPoolを作成する手順を書き記すことにある。
 
-なお、今回使用するトークンは＄DENGAKUと＄NATTOで、それらは通貨的に価値を持たないよう努力されて設計、運用されている。なので、このペアのPoolでの
 
 ## 事前準備
 
@@ -80,13 +79,13 @@ junod tx wasm execute juno1vn7z90efc3xju59ahrawchd6t70xsmmewuyzhms3vftfwcy928dqc
 --node https://rpc.juno.omniflix.co:443
 ```
 
-`approving_amount`は、LPへ入れたい量を入れたらよく、`junoswap_contract_address`には、2で得られたTx result内の情報を参照する必要があります。 　　
+`approving_amount`は、LPへ入れたい量を指定したらよく、`junoswap_contract_address`には、2で得られたTx result内の情報を参照する必要があります。 　　
 NOTE:コマンド内でのtoken量は、Decimalの桁数かけられた数字となります。
 
 4. 資産を投入する
 
 後は、実際に資産を投入するだけです。
-例：
+Command：
 
 ```shell
 junod tx wasm execute <junoswap_contract_address> \
@@ -94,11 +93,16 @@ junod tx wasm execute <junoswap_contract_address> \
 --from <wallet-name> \
 --gas 1500000 \
 --amount <DENGAKU_amount>juno176mpx9m30667vrkcrzxq8t3cpaws6gya7tgjq07xnvy79q9zwldss7fwv6,<NATTO_amount>juno1vn7z90efc3xju59ahrawchd6t70xsmmewuyzhms3vftfwcy928dqck2qnk \
---fees 37500ujuno
+--fees 37500ujuno \
 --node https://rpc.juno.omniflix.co:443
 ```
+
+Liquidity(LP token）が0の場合は、投入されるToken2の量は Maxで指定した量になります。()
 
 
 Ref:
 https://github.com/CosmosContracts/junoswap-docs/blob/main/developers/create-an-amm-pool.md
 
+## JunoSwap UIへ追加
+
+In progress...
