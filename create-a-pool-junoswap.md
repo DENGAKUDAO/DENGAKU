@@ -43,7 +43,9 @@ junod tx wasm instantiate 16 \
 `label`とはPoolを識別するための文字列で、`admin`は、コントラクトのStateを管理するアドレス。個人のアドレスの他コントラクトアドレスも指定することができるし、なにも指定しないこともできる。つまり、DENGAKU DAOのコントラクトアドレスも指定することが可能。
 
 DENGAKU DAO's Tresury Contract Address
+```markdown
 juno193tez9jcldp73fhpaqepfuu8utgkwfqaq9drx6mgk9aurnky0lequ7jfgs
+```
 
 For this time:
 
