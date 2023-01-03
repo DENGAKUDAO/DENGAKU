@@ -35,7 +35,9 @@ junod tx wasm instantiate 16 \
 --gas 10000000 \
 --fees 250000ujuno \
 --admin juno1pv88fxyhvyv2edwed72leupsuympnwvmsny4jtzspv9zw2dcrhkseh58kn \
---from <wallet-name>
+--from <wallet-name> \
+--node https://rpc.juno.omniflix.co:443 \
+--chain-id <chain-id>
 ```
 
 上から順にコマンドの中身を説明すると、`16`と言うのはさっき述べた通り、JunoswapのContracnのcode IDで、一番上の行ではJunoswapのcontractをインスタンス化して新しいプールを作ることを宣言している。　　　
@@ -57,7 +59,8 @@ junod tx wasm instantiate 16 \
 --fees 250000ujuno \
 --admin <TODO> \
 --from <wallet-name> \
---node https://rpc.juno.omniflix.co:443
+--node https://rpc.juno.omniflix.co:443 \
+--chain-id <chain-id>
 ```
 
 1. コントラクトによる資産への干渉を許可する
@@ -71,7 +74,8 @@ junod tx wasm execute juno176mpx9m30667vrkcrzxq8t3cpaws6gya7tgjq07xnvy79q9zwldss
 --from <wallet-name> \
 --gas 900000 \
 --gas-prices 0.0025ujuno \
---node https://rpc.juno.omniflix.co:443
+--node https://rpc.juno.omniflix.co:443 \
+--chain-id <chain-id>
 ```
 
 NATTO:
@@ -81,7 +85,8 @@ junod tx wasm execute juno1vn7z90efc3xju59ahrawchd6t70xsmmewuyzhms3vftfwcy928dqc
 --from <wallet-name> \
 --gas 900000 \
 --gas-prices 0.0025ujuno \
---node https://rpc.juno.omniflix.co:443
+--node https://rpc.juno.omniflix.co:443 \
+--chain-id <chain-id>
 ```
 
 `approving_amount`は、LPへ入れたい量を指定したらよく、`junoswap_contract_address`には、2で得られたTx result内の情報を参照する必要があります。 　　
@@ -90,6 +95,7 @@ NOTE:コマンド内でのtoken量は、Decimalの桁数かけられた数字と
 4. 資産を投入する
 
 後は、実際に資産を投入するだけです。
+
 Command：
 
 ```shell
@@ -97,12 +103,13 @@ junod tx wasm execute <junoswap_contract_address> \
 '{"add_liquidity": {"token1_amount": <DENGAKU_amoount>, "min_liquidity": "0", "max_token2": <NATTO_amount>}}' \
 --from <wallet-name> \
 --gas 1500000 \
---amount <DENGAKU_amount>juno176mpx9m30667vrkcrzxq8t3cpaws6gya7tgjq07xnvy79q9zwldss7fwv6,<NATTO_amount>juno1vn7z90efc3xju59ahrawchd6t70xsmmewuyzhms3vftfwcy928dqck2qnk \
 --fees 37500ujuno \
---node https://rpc.juno.omniflix.co:443
+--node https://rpc.juno.omniflix.co:443 \
+--chain-id <chain-id>
 ```
 
-Liquidity(LP token）が0の場合は、投入されるToken2の量は Maxで指定した量になります。()
+cw20の場合は`--amount`オプションの入力として処理されないため、指定しなくてOk.cw20に関してはコントラクト内でトークンのトランスファーを明示的に発火させてる。   
+Liquidity(LP token）が0の場合は、投入されるToken2の量は Maxで指定した量になります。
 
 
 Ref:
